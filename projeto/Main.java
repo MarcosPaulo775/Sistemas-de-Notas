@@ -15,9 +15,16 @@ import projeto.objetos.Boletim;
 
 public class Main {
 
-	public static void cadastraBoletim() {
+	public static Scanner scan = new Scanner(System.in);
 
-		Scanner scan = new Scanner(System.in);
+	/** Diretorio do arquivo txt */
+	public static File dir = new File("C:/Users/nome_do_usuario/Desktop");
+
+	/** Nome do arquivo txt */
+	public static File arq = new File(dir, "Dados.txt");
+
+	/** Gera novos boletins e grava no txt */
+	public static void cadastraBoletim() {
 
 		Aluno aluno = new Aluno();
 		Boletim boletim = new Boletim();
@@ -96,10 +103,8 @@ public class Main {
 			System.out.println("O aluno está reprovado!");
 		}
 
-		File dir = new File("C:/Users/Marcos Paulo/Desktop");
-		File arq = new File(dir, "Dados.txt");
-
 		try {
+			// true para continuar o arquivo e false para apagar e escrever no txt
 			FileWriter fileWriter = new FileWriter(arq, true);
 			PrintWriter printWriter = new PrintWriter(fileWriter);
 
@@ -131,10 +136,8 @@ public class Main {
 
 	}
 
+	/** Busca o aluno no txt e imprime no console */
 	public static void getAlunoByMatricula(String matricula) {
-
-		File dir = new File("C:/Users/Marcos Paulo/Desktop");
-		File arq = new File(dir, "Dados.txt");
 
 		try {
 			FileReader fileReader = new FileReader(arq);
